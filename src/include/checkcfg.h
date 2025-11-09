@@ -1,0 +1,5 @@
+string checkcfg() {
+	
+	return "";
+} 
+

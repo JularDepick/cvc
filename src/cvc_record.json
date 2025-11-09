@@ -1,0 +1,14 @@
+[
+    {
+        "langname" : "python",
+        "complier" : "python",
+        "v" : "3.13",
+        "root" : "C:/Program Files/Python",
+        "uevar_HOME" : "APY-HOME",
+        "uevar_VPATH" : "APY-313",
+        "uevar_Path" : [
+            "\\bin",
+            "\\Scripts"
+        ]
+    }
+]
