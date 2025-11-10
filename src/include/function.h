@@ -1,15 +1,19 @@
+//引入的为辅助函数(可以被()显式地调用) 
 #include "help.h"
 #include "cmdcolor.h"
 #include "getroot.h"
 #include "isopt.h"
 #include "checkcfg.h"
 #include "showcfg.h"
-//引入的为辅助函数 
+#include "colorprint.h"
+#include "error.h"
+#include "guess.h"
+#include "wtinuelog.h"
 
-//选项处理单独作一个函数 
+/*选项处理
 string cvcopt() {
 	const string opt=argv[1];
-	if(opt=="--help") {
+	if(opt=="") {
 		cout<<help()<<endl;
 	} else
 	if(opt=="--version") {
@@ -44,40 +48,88 @@ string cvcopt() {
 	}
 	return "";
 }
+*/
 
+//以下定义函数是交互设计的,不期望被()显式地调用,他们不返回任何有效文本,定义为string返回值类型仅仅是一个保留举措 
 
-
-//以下函数均为关键字操作函数 
-
-string add() {
-	return "";
+string __help() {
+	return _0_;
 }
 
-string fix() {
-	return "";
+string __version() {
+	return _0_;
 }
 
-string search() {
-	return "";
+string __root() {
+	return _0_;
 }
 
-string show() {
-	return "";
+string __support() {
+	return _0_;
 }
 
-string _switch() {
-	return "";
+string __check() {
+	return _0_;
 }
 
-struct fun {
-	string fname;  //函数关键字 
-	string (*fptr)();  //函数指针
+string __cfg() {
+	return _0_;
+}
+
+string __list() {
+	return _0_;
+}
+
+string __add() {
+	return _0_;
+}
+
+string __fix() {
+	return _0_;
+}
+
+string __search() {
+	return _0_;
+}
+
+string __show() {
+	return _0_;
+}
+
+string __switch() {
+	return _0_;
+}
+
+struct afun {
+	//函数关键字(命令名称) 
+	string fname;
+	//函数指针
+	string (*fptr)();
 };
-const vector<fun> fvec={
-	{"add",&add},
-	{"fix",&fix},
-	{"search",&search},
-	{"show",&show},
-	{"switch",&_switch}
+const vector<afun> fvec={
+	{"--help",
+		&__help},
+	{"--version",
+		&__version},
+	{"--root",
+		&__root},
+	{"--support",
+		&__support},
+	{"--check",
+		&__check},
+	{"--cfg",
+		&__cfg},
+	{"--list",
+		&__list},
+	{"add",
+		&__add},
+	{"fix",
+		&__fix},
+	{"search",
+		&__search},
+	{"show",
+		&__show},
+	{"switch",
+		&__switch}
 };
 

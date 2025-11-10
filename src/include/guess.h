@@ -1,0 +1,3 @@
+string guess() {
+	return "";
+}

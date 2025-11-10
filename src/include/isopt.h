@@ -1,5 +1,5 @@
 bool isopt(string str) {
-	if(str.size()<2) {
+	if(str.size()<=2) {
 		return 0;
 	}
 	if(str[0]=='-') {

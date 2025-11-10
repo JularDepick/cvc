@@ -1,0 +1,3 @@
+string wtinlog() {
+	return "";
+}
