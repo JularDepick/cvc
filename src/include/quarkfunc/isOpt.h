@@ -1,4 +1,4 @@
-bool isopt(string str) {
+bool isOpt(string str) {
 	if(str.size()<=2) {
 		return 0;
 	}

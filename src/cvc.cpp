@@ -14,10 +14,10 @@ string echodesc="";
 //执行结果 //应该由具体函数维护
 string restext="";
 
-//自定义头文件(部分) 
+//自定义头文件(顶层头文件,其中可能引入其他头文件) 
 #include "./include/define.h"
 #include "./include/const.h"
-#include "./include/function.h"
+#include "./include/function.h" 
 
 int main(int _argc,char* _argv[]) {
 	//参数信息映射到全局变量上 
@@ -27,7 +27,7 @@ int main(int _argc,char* _argv[]) {
 	//判断参数基本情况 
 	if(argc<=1) {
 		//无参数默认输出帮助文档 
-		cout<<help()<<endl;
+		cout<<getHelpText()<<endl;
 		return 0;
 	}
 	
@@ -46,7 +46,7 @@ int main(int _argc,char* _argv[]) {
 		}
 		if(!fptr) {
 			//没找到该命令
-			echocode=(isopt(cmdstr)? _EROPT_:_ERCMD_);
+			echocode=(isOpt(cmdstr)? _EROPT_:_ERCMD_);
 		}
 	}
 	
@@ -58,12 +58,12 @@ int main(int _argc,char* _argv[]) {
 		}
 		case _EROPT_: {
 			echodesc=("错误的选项" " " +cmdstr+" !\n");
-			guess();
+			guessCommand();
 			break;
 		}
 		case _ERCMD_: {
 			echodesc=("错误的命令" ": " +cmdstr+" !\n");
-			guess();
+			guessCommand();
 			break;
 		}
 		case _MISSARG_: {
@@ -85,7 +85,7 @@ int main(int _argc,char* _argv[]) {
 		default: {
 			echodesc=("程序发生了未知错误,已加入到日志文件 cvc.log ,请上报开发者尝试修复" "!");
 			//记入未知错误日志 Write in Unkown Error Log
-			wtinuelog(); 
+			logErr(); 
 			break;
 		}
 	}

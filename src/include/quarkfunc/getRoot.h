@@ -1,4 +1,4 @@
-string getroot() { 
+string getRoot() { 
 	//从注册表获取
 	//查找 HKEY_LOCAL_MACHINE
 	HKEY hkey=nullptr;
@@ -12,6 +12,6 @@ string getroot() {
 			return rootstr;
 		}
 	}
-	return ("从注册表中查找不到 " _REGPATH_);
+	return _0_;
 } 
 

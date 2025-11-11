@@ -1,4 +1,4 @@
-string help() {
+string getHelpText() {
 	return R"(
 Usage:
   cvc <command> [options]

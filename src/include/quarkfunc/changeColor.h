@@ -1,4 +1,5 @@
-string color(unsigned int code=0x07,bool global=1) {
+string changeColor(unsigned int code=0x07,bool global=1) {
+	//改变控制台颜色，有全局(默认)和局部(到下一次调用为止)两种选择 
 	if(global) {
 		if(code==0x07) {
 			system("color 07");
@@ -13,5 +14,5 @@ string color(unsigned int code=0x07,bool global=1) {
 	} else {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),code);
 	}
-	return "__color__";
+	return _0_;
 } 
